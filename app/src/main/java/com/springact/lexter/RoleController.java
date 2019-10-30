@@ -26,7 +26,6 @@ public class RoleController {
 
 	@RequestMapping("/roles/{id}")
 	public Role readRole(@PathVariable int id) {
-		RestTemplate restTemplate = new RestTemplate();	
 		return roleSerivce.getRole(id);
 	}
 
