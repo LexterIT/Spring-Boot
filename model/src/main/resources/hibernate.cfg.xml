@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Create table if not exists  -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+        <!-- The JDBC driver of your database -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <!-- Indicate the database to generate suitable SQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!-- The JDBC URL to the database instance -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernateanno</property>
+        <!-- The database username -->
+        <property name="hibernate.connection.username">postgres</property>
+        <!-- The database password -->
+        <property name="hibernate.connection.password">12345</property>
+        <!-- XML mapping file -->
+        <property name="hibernate.id.new_generator_mappings">false</property>
+
+        <property name="show_sql">true</property>
+        <!-- Cache Related Properties -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.provider_class">
+            org.hibernate.cache.EhCacheProvider</property>
+        
+        <!-- <mapping class="com.spring.lexter.Person"/> -->
+        <mapping class="com.spring.lexter.Role"/>
+        <!-- <mapping class="com.spring.lexter.ContactType"/> -->
+        <!-- <mapping class="com.spring.lexter.ContactInfo"/> -->
+
+  <!--       <mapping resource="Person.hbm.xml"></mapping>
+        <mapping resource="Role.hbm.xml"></mapping>
+        <mapping resource="ContactType.hbm.xml"></mapping>
+        <mapping resource="ContactInfo.hbm.xml"></mapping> -->
+    </session-factory>
+</hibernate-configuration>
