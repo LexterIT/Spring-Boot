@@ -3,11 +3,22 @@
     <head lang="en">
         <title>Spring Framework Guru</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+              th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+              rel="stylesheet" media="screen" />
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+                th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+        <link href="../static/css/sample.css"
+              th:href="@{css/sample.css}" rel="stylesheet" media="screen"/>
     </head>
     <body>
-    <link href="../static/css/sample.css"
-        th:href="@{css/sample.css}" rel="stylesheet" media="screen"/>
-    <h1>Hello</h1>
-    <h2>Hello This is The Main Menu!</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <img src="../static/images/sampleimage.jpg" width="1000"
+                 th:src="@{images/sampleimage.jpg}"/>
+            <h1>Hello</h1>
+            <h2>Fellow Spring Framework Gurus!!!</h2>
+        </div>
+    </div>
     </body>
     </html>
