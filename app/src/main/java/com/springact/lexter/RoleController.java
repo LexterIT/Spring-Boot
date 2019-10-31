@@ -31,8 +31,10 @@ public class RoleController {
 
 	@RequestMapping(method=RequestMethod.POST, value="/roles")
 	public ResponseEntity<Object> addRole(@RequestBody Role role) {
-		roleSerivce.addRole(role);
-		return new ResponseEntity<>("The Role:"+role+" has been added!", HttpStatus.OK);
+		if(roleSerivce.addRole(role))
+			return new ResponseEntity<>("The Role:"+role+" has been added!", HttpStatus.OK);
+		else 
+			return new ResponseEntity<>("The Role:"+role.getRole()+" already does exist in the database", HttpStatus.OK);
 	}
 
 	@RequestMapping(method=RequestMethod.PUT, value="/roles/{id}")
