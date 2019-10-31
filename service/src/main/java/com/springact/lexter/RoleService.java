@@ -17,23 +17,6 @@ public class RoleService {
 	public RoleService(HibernateUtil hibernateUtil) {
 		this.hibernateUtil = hibernateUtil;
 	}
-	// // @Autowired
-	// private HibernateUtil hibernateUtil;
-	// // private ScannerUtil scannerUtil;
-
-	// public RoleService(HibernateUtil hibernateUtil) {
-	// 	// this.hibernateUtil = hibernateUtil;
-	// 	// this.scannerUtil = new ScannerUtil();
-	// }
-
-	// public RoleService(HibernateUtil hibernateUtil, ScannerUtil scannerUtil) {
-	// 	this.hibernateUtil = hibernateUtil;
-	// 	this.scannerUtil = scannerUtil;
-	// }
-
-	// public void setScannerUtil(ScannerUtil scannerUtil) {
-	// 	this.scannerUtil = scannerUtil;
-	// }
 
 	public List<Role> readRoles() {
 		List<Role> roles = null;
@@ -50,8 +33,18 @@ public class RoleService {
 		// return roles.stream().filter(r -> r.getId() == id).findFirst().get();
 	}
 
-	public void addRole(Role role) {
-		hibernateUtil.insertObject(role);
+	public boolean addRole(Role role) {
+		List<Role> roles = readRoles();
+		System.out.println(roles);
+		boolean existing = roles.stream().anyMatch(r -> r.getRole().equals(role.getRole()));
+		System.out.println(existing);
+		if(!existing) { 
+			hibernateUtil.insertObject(role);
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public void updateRole(Role role) {
