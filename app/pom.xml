@@ -10,6 +10,7 @@
   <groupId>com.springact.lexter</groupId>
   <artifactId>app</artifactId>
   <version>1.0</version>
+  <packaging>war</packaging>
   <name>app</name>
   <url>http://maven.apache.org</url>
   <dependencies>

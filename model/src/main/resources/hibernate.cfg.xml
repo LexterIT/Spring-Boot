@@ -28,10 +28,10 @@
         <property name="hibernate.cache.provider_class">
             org.hibernate.cache.EhCacheProvider</property>
         
-        <!-- <mapping class="com.spring.lexter.Person"/> -->
+        <mapping class="com.spring.lexter.Person"/>
         <mapping class="com.spring.lexter.Role"/>
-        <!-- <mapping class="com.spring.lexter.ContactType"/> -->
-        <!-- <mapping class="com.spring.lexter.ContactInfo"/> -->
+        <mapping class="com.spring.lexter.ContactType"/>
+        <mapping class="com.spring.lexter.ContactInfo"/>
 
   <!--       <mapping resource="Person.hbm.xml"></mapping>
         <mapping resource="Role.hbm.xml"></mapping>

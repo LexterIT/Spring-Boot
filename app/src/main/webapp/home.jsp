@@ -10,23 +10,36 @@
                 th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
         <link href="../static/css/sample.css"
               th:href="@{css/sample.css}" rel="stylesheet" media="screen"/>
+        <style>
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #333;
+            }
+
+            li {
+              float: left;
+            }
+
+            li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+
+            li a:hover {
+              background-color: #111;
+            }
+        </style>
     </head>
     <body>
-    <div class="container">
-        <div class="jumbotron">
-            <img src="../static/images/sampleimage.jpg" width="1000"
-                 th:src="@{images/sampleimage.jpg}"/>
-            <h1>Hello World!</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="jumbotron">
-            <li><a href="rolesview">Get message</a></li>
-            <form action="rolesview">
-            Choice: <input type="text" name="choice" /> 
-            <input type="submit"/>
-    </form>
-        </div>
-    </div>
+        <ul>
+            <li><a href="role/roles">Roles</a></li>
+            <li><a href="person/person">Person</a></li>
+        </ul>
     </body>
     </html>

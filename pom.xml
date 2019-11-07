@@ -83,9 +83,14 @@
         <artifactId>spring-boot-starter-data-jpa</artifactId>
       </dependency>
       <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper</artifactId>
+        <version>9.0.13</version>
+      </dependency>
+     <!--  <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
-      </dependency><!-- 
+      </dependency> --><!-- 
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
@@ -109,6 +114,14 @@
         <artifactId>jquery</artifactId>
         <version>2.1.4</version>
       </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+
+
+
    </dependencies>
    
    <build>

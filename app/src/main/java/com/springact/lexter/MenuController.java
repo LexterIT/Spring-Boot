@@ -16,15 +16,18 @@ public class MenuController {
 	// public String index() {
 	// 	return "index";
 	// }
-
-
-	@RequestMapping(value="/index")
-	public String roleViewPage(ModelMap model, @RequestParam String choice) {
-		System.out.println(choice);
-		if(choice.equalsIgnoreCase("role")) {
-			model.put("choice",choice);
-			return "rolesview";
-		}
-		return "index";
+	@RequestMapping("/")
+	public String home() {
+		return "home.jsp";
 	}
+
+	// @RequestMapping(value="/index")
+	// public String roleViewPage(ModelMap model, @RequestParam String choice) {
+	// 	System.out.println(choice);
+	// 	if(choice.equalsIgnoreCase("role")) {
+	// 		model.put("choice",choice);
+	// 		return "rolesview";
+	// 	}
+	// 	return "index";
+	// }
 }
