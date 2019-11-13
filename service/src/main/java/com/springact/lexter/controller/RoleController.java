@@ -1,9 +1,11 @@
 package com.spring.lexter;
 
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,22 +22,25 @@ import java.util.List;
 
 @RequestMapping(value="/role")
 @Controller
-public class TempRoleController {
+public class RoleController {
 
 	@Autowired
 	private RoleService roleSerivce;
 
+	@Autowired
+	private RoleConverter roleConverter;
+
 	@RequestMapping(value="/roles")
-	public ModelAndView readRoles(Model model){
+	public ModelAndView readRoles(){
 		ModelAndView mv = new ModelAndView("roles.jsp");
 		mv.addObject("roles", roleSerivce.readRoles());
 		return mv;
 	}
 
 	@RequestMapping(value="/addRole")
-	public ModelAndView addRole(Role role) {
+	public ModelAndView addRole(RoleDTO roleDTO) {
 		ModelAndView mv = new ModelAndView(new RedirectView("/role/roles"));
-		System.out.println(role);
+		Role role = roleConverter.dtoToEntity(roleDTO);
 		roleSerivce.addRole(role);
 		return mv;
 	}
@@ -46,29 +51,27 @@ public class TempRoleController {
 	}
 
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
-	public ModelAndView editRoleForm(@PathVariable String id) {
+	public ModelAndView editRoleForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("editRoleForm.jsp");
-		System.out.println(id);
-		int roleId = Integer.parseInt(id);
-		Role role = roleSerivce.getRole(roleId);
-		mv.addObject("role",role);
+		Role role = roleSerivce.getRole(id);
+		RoleDTO roleDTO = roleConverter.entityToDTO(role);
+		mv.addObject("role",roleDTO);
 		return mv;
 	}
 
 	@RequestMapping(value="/edit/updateRole")
-	public ModelAndView updateRole(Role role) {
+	public ModelAndView updateRole(RoleDTO roleDTO) {
 		ModelAndView mv = new ModelAndView(new RedirectView("/role/roles"));
+		Role role = roleConverter.dtoToEntity(roleDTO);
 		roleSerivce.updateRole(role);
-		System.out.println(role);
 		return mv;
 	}
 
 	@RequestMapping(value="/delete/{id}")
-	public ModelAndView deleteRoleForm(@PathVariable String id) {
+	public ModelAndView deleteRoleForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("deleteRoleResult.jsp");
-		int roleId = Integer.parseInt(id);
-		roleSerivce.deleteRole(roleId);
-		mv.addObject("roleId",roleId);
+		roleSerivce.deleteRole(id);
+		mv.addObject("roleId",id);
 		return mv;	
 	}
 

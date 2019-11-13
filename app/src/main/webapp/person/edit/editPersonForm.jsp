@@ -1,5 +1,6 @@
     <!DOCTYPE html>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt"  prefix = "fmt"%>
     <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
         <title>Edit Person Form</title>
@@ -47,16 +48,18 @@
                     </tr>
                     <tr>
                         <td class="w3-center"><p>Birthday</p></td>
-                        <td><input type="date" name="birthday" value="${person.birthday}"/></td>
+                        <td><input type="date" name="birthday" 
+                            value ="<fmt:formatDate value="${person.birthday}" pattern="yyyy-MM-dd"/>"/></td>
                         <td class="w3-center"><p>Date Hired</p></td>
-                        <td><input type="date" name="dateHired" value="${person.dateHired}"/></td>
+                        <td><input type="date" name="dateHired"
+                            value ="<fmt:formatDate value="${person.dateHired}" pattern="yyyy-MM-dd"/>"/></td>
                     </tr>
                     <tr>
                         <td class="w3-center"><p>GWA</p></td>
-                        <td><input type="text" name="gwa" value="${person.gwa}"/></td>
+                        <td><input type="number" name="gwa" value="${person.gwa}" step="0.01" min="1" max="5"/></td>
                         <td class="w3-center"><p>Currently Employed</p></td>
                         <td class="w3-center"><c:choose>
-                            <c:when test="$person{person.isCurEmp}">
+                            <c:when test="${person.isCurEmp}">
                                 <input type="radio" name="isCurEmp" value="true" checked> true
                                 <input type="radio" name="isCurEmp" value="false"> false
                             </c:when> <c:otherwise>

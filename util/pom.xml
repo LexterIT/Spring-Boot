@@ -19,5 +19,9 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.springact.lexter</groupId>
+      <artifactId>model</artifactId>
+    </dependency>
   </dependencies>
 </project>

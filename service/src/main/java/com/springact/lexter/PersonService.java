@@ -12,5 +12,5 @@ public interface PersonService {
 
 	void updatePerson(Person person);
 
-	void deletePerson(Person person);
+	void deletePerson(int id);
 }

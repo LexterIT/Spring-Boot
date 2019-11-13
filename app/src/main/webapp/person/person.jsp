@@ -7,9 +7,14 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
-        <form action="addPersonForm"> 
+        <ul>
+            <li><a href="#">Person</a></li>
+            <li><a href="/role/roles">Roles</a></li>
+            <li style="float:right"><a href="addPersonForm">Add Person</a></li>
+        </ul>
+        <!-- <form action="addPersonForm"> 
             <input type="submit" value="Add New Person" style="float:right"/>
-        </form>
+        </form> -->
         <table style="width:100%" class="w3-table-all">
             <tr>
                 <th style="width:40%">Name</th>

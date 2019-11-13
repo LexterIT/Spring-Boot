@@ -1,3 +1,27 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
 body {
   background-color: white;
 }
@@ -27,6 +51,10 @@ button, input[type=submit], input[type=reset]{
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+table p {
+  text-align: center;
 }
 
 .container {
@@ -60,12 +88,10 @@ button, input[type=submit], input[type=reset]{
     text-indent: 3px;
     font-weight: bold;
     font-size: 18px;
-letter-spacing: .1em;
-color:
-white;
-text-transform: uppercase;
-background: -webkit-linear-gradient(top,#fefefd 0,#68aa00 1%,#639e22 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefd',endColorstr='#639e22',GradientType=0);
-text-shadow: 0 -1px 0
-    green;
+    letter-spacing: .1em;
+    color:white;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(top,#fefefd 0,#68aa00 1%,#639e22 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefd',endColorstr='#639e22',GradientType=0);
+    text-shadow: 0 -1px 0 green;
 }

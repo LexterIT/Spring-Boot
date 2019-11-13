@@ -8,9 +8,14 @@
         <script src="/js/sample.js"></script>
     </head>
     <body>
-        <form action="addRoleForm"> 
+        <ul>
+            <li><a href="/person/person">Person</a></li>
+            <li><a href="#">Roles</a></li>
+            <li style="float:right"><a href="addRoleForm">Add Role</a></li>
+        </ul>
+        <!-- <form action="addRoleForm"> 
             <input type="submit" value="Add New Role" style="float:right"/>
-        </form>
+        </form> -->
         <table style="width:100%" class="w3-table-all, w3-table-all w3-centered">
             <tr>
                 <th style="width:45%">Title</th>

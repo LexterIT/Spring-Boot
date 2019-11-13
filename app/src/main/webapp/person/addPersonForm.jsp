@@ -18,7 +18,6 @@
             <div id="content">
 
             <form action="addPerson">
-                <input type="hidden" name="id" value="1"/>
                 <table>
                     <tr>
                         <td><p>First Name</p></td>
@@ -53,7 +52,7 @@
                     </tr>
                     <tr>
                         <td><p>GWA</p></td>
-                        <td><input type="number" name="gwa" step="0.10"/></td>
+                        <td><input type="number" name="gwa" value="1" step="0.01" min="1" max="5"/></td>
                         <td><p>Currently Employed</p></td>
                         <td>
                             <input type="radio" name="isCurEmp" value="true" checked> true<br>

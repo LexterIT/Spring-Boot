@@ -10,7 +10,6 @@
             <div id="title">Add Role</div>
             <div id="content">
             <form action="addRole">
-                <input type="hidden" name="id" value="1"/>
                 <table>
                     <tr>
                         <td><p>Role Name</p></td>

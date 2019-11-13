@@ -1,8 +1,12 @@
 package com.spring.lexter;
 
+import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;  
 
 @Service
 public class PersonServiceIMPL implements PersonService{
@@ -10,35 +14,36 @@ public class PersonServiceIMPL implements PersonService{
 	@Autowired
 	private HibernateUtil hibernateUtil;
 
+	@Autowired
+	private PersonRepository personRepository;
+
 	public PersonServiceIMPL(HibernateUtil hibernateUtil) {
 		this.hibernateUtil = hibernateUtil;
 	}
 
 	public List<Person> readPeople() {
-		List<Person> people = null;
-		people = hibernateUtil.getSorted(Person.class, "id", "asc");
+		List<Person> people = new ArrayList<Person>();
+		personRepository.findAll().forEach(p -> people.add(p));
 		return people;
 	}
 
 	public Person getPerson(int id) {
-		Person person = (Person) hibernateUtil.getSingleObject(Person.class, id);
-		System.out.println("PersonService getPerson" + person);
+		Person person = personRepository.findById(id).get();
 		if(person == null) 
 			return null;
 		return person;
 	}
 
 	public void addPerson(Person person) {
-		hibernateUtil.insertObject(person);
+		// hibernateUtil.insertObject(person);
+		personRepository.save(person);
 	}
 
 	public void updatePerson(Person person) {
-		System.out.println("updatePersonService: " + person);
-		hibernateUtil.updateObject(person);
-		System.out.println(getPerson(person.getId()));
+		personRepository.save(person);
 	}
 
-	public void deletePerson(Person person) {
-		hibernateUtil.deleteObject(person);
+	public void deletePerson(int id) {
+		personRepository.deleteById(id);
 	}
 }

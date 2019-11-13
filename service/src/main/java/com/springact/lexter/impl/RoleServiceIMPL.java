@@ -14,19 +14,23 @@ public class RoleServiceIMPL implements RoleService {
 	@Autowired
 	private HibernateUtil hibernateUtil;
 
+	@Autowired
+	private RoleRepository roleRepository;
+
 	public RoleServiceIMPL(HibernateUtil hibernateUtil) {
 		this.hibernateUtil = hibernateUtil;
 	}
 
 	public List<Role> readRoles() {
-		List<Role> roles = null;
-		roles = hibernateUtil.getSorted(Role.class, "id", "asc");
+		List<Role> roles = new ArrayList<Role>();
+		roleRepository.findAll().forEach(role -> roles.add(role));
 		return roles;
 	}
 
 	public Role getRole(int id) {
-		Role role = (Role) hibernateUtil.getSingleObject(Role.class, id);
-		if(role == null) {
+		// Role role = (Role) hibernateUtil.getSingleObject(Role.class, id);
+		Role role = roleRepository.findById(id).get();
+ 		if(role == null) {
 			return null;
 		}
 		return role;
@@ -40,8 +44,8 @@ public class RoleServiceIMPL implements RoleService {
 		if(role == null) {
 			return false;
 		}
-		if(!existing) { 
-			hibernateUtil.insertObject(role);
+		if(!existing) {
+			roleRepository.save(role);
 			return true;
 		}
 		else {
@@ -50,11 +54,13 @@ public class RoleServiceIMPL implements RoleService {
 	}
 
 	public void updateRole(Role role) {
-		hibernateUtil.updateObject(role);
+		// hibernateUtil.updateObject(role);
+		roleRepository.save(role);
 	}
 
 	public void deleteRole(int id) {
-		Role role = (Role) hibernateUtil.getSingleObject(Role.class, id);
-		hibernateUtil.deleteObject(role);
+		// Role role = (Role) hibernateUtil.getSingleObject(Role.class, id);
+		// hibernateUtil.deleteObject(role);
+		roleRepository.deleteById(id);
 	}
 }
